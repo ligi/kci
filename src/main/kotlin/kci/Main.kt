@@ -23,6 +23,7 @@ fun main(args: Array<String>) {
         }
     }.start(wait = true)
     /*
+    
     outPath.mkdir()
     while (true) {
         File("workspace").listFiles().forEach { projectFile ->
