@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        KOTLIN_VERSION = "1.0.0"
+        KOTLIN_VERSION = "1.1.1"
     }
 
     repositories {
@@ -19,6 +19,7 @@ mainClassName = "kci.MainKt"
 
 repositories {
     jcenter()
+    maven { url 'http://dl.bintray.com/kotlin/ktor'}
 }
 
 dependencies {
@@ -27,6 +28,7 @@ dependencies {
     compile 'com.squareup.okhttp3:okhttp:3.1.2'
     compile 'org.eclipse.jgit:org.eclipse.jgit:4.2.0.201601211800-r'
     compile 'org.slf4j:slf4j-simple:1.6.1'
-
+    compile 'org.jetbrains.ktor:ktor-core:0.3.0'
+    compile 'org.jetbrains.ktor:ktor-netty:0.3.0'
 }
 

@@ -1,15 +1,29 @@
 package kci
 
-import org.eclipse.jgit.api.Git
-import org.eclipse.jgit.storage.file.FileRepositoryBuilder
+
+import org.jetbrains.ktor.application.call
+import org.jetbrains.ktor.http.ContentType
+import org.jetbrains.ktor.netty.embeddedNettyServer
+import org.jetbrains.ktor.response.respondText
+import org.jetbrains.ktor.routing.post
+import org.jetbrains.ktor.routing.routing
 import java.io.File
 
 val outPath = File("output")
 
 fun main(args: Array<String>) {
+    embeddedNettyServer(9001) {
+        routing {
+            post ("/") {
 
+                val get = call.request.content[String::class]
+                println(""+ get)
+                call.respondText("Thanks GitHub!", ContentType.Text.Plain)
+            }
+        }
+    }.start(wait = true)
+    /*
     outPath.mkdir()
-
     while (true) {
         File("workspace").listFiles().forEach { projectFile ->
 
@@ -49,5 +63,6 @@ fun main(args: Array<String>) {
 
         Thread.sleep(3000)
     }
+*/
 }
 
